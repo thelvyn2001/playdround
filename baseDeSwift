@@ -1,0 +1,156 @@
+import UIKit
+
+//print
+var str = "Salut les codeurs"
+print(str) // \n retour a la ligne
+let nbJoueurs = 12
+print("nombre de joueurs :  \(nbJoueurs)")
+
+//commentaire une ligne
+/* commentaire sur plusieurs lignes*/
+
+/* variables et constantes : nommage = CamelCase */
+//varriable
+var prenom: String = "stéphane"  //ou var prenom = "Stéphane"
+var age: Int = 52
+var varOne: String = "varOne"; var varTwo: String = "varTwo" //1 line for two var
+//constance
+let lieuDeNaissance: String = "Saint Quentin"
+//modif variable
+prenom = "Dominique"
+age = 27
+
+/* nombres entiers */
+//signés
+var nb1: Int = 10; var nb2: Int = -520
+//non signés pas de nombres négatifs
+var unsigned1: UInt = 10
+
+/* Nombres décimaux */
+//par défaut en double si non précisé
+var decimal1  = 543.3
+var myFloat: Float = 34.76
+var myDouble: Double = 1254.15
+
+/* Conversion entre type */
+//convertion float en integer et inversement
+nb1 = Int(myFloat)
+myFloat = Float(nb1)
+
+/* Strings */
+//déclaration
+var salutation: String = "bonjour"
+var strinnOne: String
+var nombreString = "12"
+var nombreConvertring = String(decimal1)
+//string plusieurs lignes
+var multiline: String = "salut les codeurs \nComment allez vous ?"
+print(multiline)
+var varianteMutliline: String = """
+bonjour
+commment se passe
+'votre apprentissage'
+"""
+print(varianteMutliline)
+//mutabilité des Strings
+var mutable: String = "https://www.stephane.henry"
+mutable += ".com"
+//concaténation
+var identite: String = prenom + " et j'ai " + String(age) + " ans"
+//interpolation
+var interpolation: String = "bonjour le m'apelle \(prenom) et j'ai \(age) ans"
+//loop string
+var macOSName = "mac OS Catalina"
+for character in macOSName {
+    print(character)
+}
+//methodes
+print(macOSName.count)
+print(macOSName.uppercased())
+print(macOSName.lowercased())
+print(macOSName.capitalized)
+
+var fruitsDeMer = "j'aime les moules, les huitres, les palourdes et les oursin"
+print(fruitsDeMer.replacingOccurrences(of: "huitres", with: "frites"))
+var emoji="🧑🏽‍🦼"
+print (emoji)
+
+/* Booleens */
+var sunny: Bool = false
+if sunny {
+    print("allons a la plage")
+} else {
+    print("restons a la maison")
+}
+//ternaire
+print(sunny ? "Allons a la plage": "Restons a coder")
+
+/* Tuples regroupe plusieurs variables */
+var player1: (String, Bool, Int) = ("Stéphane", false, 123)
+print(player1.0 + " en train de jouer: \(player1.1).\nson meilleur score est \(player1.2)")
+var player2: (name: String, active: Bool, bestScore: Int) = ("Durtol", true, 123)
+print(player2.name + " en train de jouer: \(player2.active).\nson meilleur score est \(player2.bestScore)")
+
+/* ARRAYS */
+var listeDeCourses: [String] = ["Carottes", "Salade", "Tomates"]  //que string
+var listeDeCoursesBis = ["Carottes", "Salade", "Tomates", 2] as [Any] //n'importe quoi
+var listeVide: [String] = [] // ou var listeVide =  [String]()
+print(listeDeCourses)
+print(listeDeCourses.count)
+print(listeDeCourses.isEmpty)
+print(listeVide.count)
+print(listeVide.isEmpty)
+for element in listeDeCourses {
+    print(element.uppercased())
+}
+//index part de 0
+let carotte = listeDeCourses[0] ;print(carotte)
+let lastCourse = listeDeCourses[listeDeCourses.count - 1]
+//add one element
+listeDeCourses.append("Courgettes")
+//add more elements
+listeDeCourses.append(contentsOf: ["ciboulette","oignons"])
+listeDeCourses += ["poulet","dinde"]
+print(listeDeCourses)
+//insert at one index
+listeDeCourses.insert("Pain", at: 0)
+listeDeCourses.insert(contentsOf: ["Camenbert","Fromage chevre"], at: 1)
+print(listeDeCourses)
+//suppression
+listeDeCourses.remove(at: 5)
+listeDeCourses.removeLast()
+listeDeCourses.removeFirst()
+print(listeDeCourses)
+// listeDeCourses.removeAll()  -->vide la liste
+
+/* Dictionnaires pas ordonnés
+ pas accessible par un index mais une key
+ */
+//initialisation 2 methods
+var maFamille: [String: Int] = ["Bob": 50, "Jane": 45, "Bill": 23, "Kensi": 17]
+var maBelleFamille = Dictionary<String, Int>()
+print(maFamille.count)
+print(maFamille.isEmpty)
+//loop
+for (key, value) in maFamille {
+    print(key + " " + String(value) + " ans.")
+}
+//access with key
+print(maFamille["Jane"] ?? 10)
+//ajout si modif et existe pas
+maFamille["Matt"] = 52
+maFamille["Bob"] = 20
+maFamille.updateValue(42, forKey: "Bob")
+//del one key
+maFamille.removeValue(forKey: "Kensi")
+print(maFamille)
+
+/* optionnels */
+//var userName: String
+//print(userName) //erreur
+var userName: String
+userName = "Matt"
+print(userName)
+
+
+
